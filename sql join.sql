@@ -26,7 +26,7 @@ FROM products as p
 INNER JOIN sales as s on s.ProductID = p.ProductID
 WHERE p.ProductID = 97;
 /* joins: find Product name, reviewer name, rating, and comment on the Visio TV. (only return for the lowest rating!) */
-SELECT p.Nme, r.Reviewer, r.Rating, r.Comment FROM products as p
+SELECT p.Name, r.Reviewer, r.Rating, r.Comment FROM products as p
 INNER JOIN reviews as r ON r.ProductID = p.ProductID
 WHERE p.ProductID = 857 AND r.Rating = 1;
 
@@ -37,7 +37,7 @@ This query should return:
 -  the employee's first and last name
 -  the name of each product
 -  and how many of that product they sold */
-SELECT e.EmployeeID, e.FirstName, e.LastName, p.Name, SUM(sQuantity) as TotalSold
+SELECT e.EmployeeID, e.FirstName, e.LastName, p.Name, SUM(Quantity) as TotalSold
 FROM Sales as s
 INNER JOIN employees as e on e.EmployeeID = s.EmployeeID
 INNER JOIN products as p on p.ProductID = s.ProductID
